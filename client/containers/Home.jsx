@@ -11,12 +11,14 @@ const Home = () => {
   const [output, setOutput] = useState('');
   const [visualizer, setVisualizer] = useState({});
 
-
+  // called on every click of Call API button
+  useEffect(() => {
+    // fetch API request with endpoint
+  }, [endpoint]);
  
 
   return (
     <div className='container'>
-      <div>{endpoint}</div>
       <Endpoint setEndpoint = {setEndpoint}/>
       <KeyList keyList = {keyList}/>
       <Visualizer visualizer = {visualizer}/>

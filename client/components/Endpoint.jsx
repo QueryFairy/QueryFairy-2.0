@@ -1,23 +1,20 @@
 import React, {useState} from 'react';
+let input = '';
 const Endpoint = (props) => {
   const { setEndpoint } = props;
-  const [input, setInput] = useState('');
 
   const onChangeHandler = (e) => {
-    setInput(e.target.value);
+    input = e.target.value
   }
   
   const onClickHandler = () => {
-    console.log(input)
-    // fetch using input
-    // setEndpoint(result of API call)
+    setEndpoint(input);
   }
-
 
   return (
     <div className='API-Call'>
-      <input type='text' onChange = {onChangeHandler} ></input>
-      <button type='button' onClick = {onClickHandler}>Call API</button>
+      <input type='text' placeholder='API endpoint' onChange = {onChangeHandler} ></input>
+      <button type='button' onClick = {onClickHandler}>Submit</button>
     </div>
   );
 };
