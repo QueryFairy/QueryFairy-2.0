@@ -16,10 +16,12 @@ const Home = () => {
 
   return (
     <div className='container'>
+      <div>{endpoint}</div>
       <Endpoint setEndpoint = {setEndpoint}/>
       <KeyList keyList = {keyList}/>
       <Visualizer visualizer = {visualizer}/>
       <Output output = {output}/>
+      
     </div>
   );
 };
