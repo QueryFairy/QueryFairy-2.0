@@ -3,7 +3,7 @@ const Endpoint = (props) => {
   const { endpoint } = props;
 
   return (
-    <div class='API-Call'>
+    <div className='API-Call'>
       <input type='text'></input>
       <button type='button'>Call API</button>
     </div>

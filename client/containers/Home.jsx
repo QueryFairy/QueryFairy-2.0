@@ -11,8 +11,11 @@ const Home = () => {
   const [output, setOutput] = useState('');
   const [visualizer, setVisualizer] = useState({});
 
+  
+ 
+
   return (
-    <div class='container'>
+    <div className='container'>
       <Endpoint />
       <KeyList />
       <Visualizer />

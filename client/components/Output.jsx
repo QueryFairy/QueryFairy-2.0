@@ -2,6 +2,8 @@ import React from 'react';
 const Output = (props) => {
   const { output } = props;
 
-  return <div class='Output'></div>;
+  return (
+  <div className='Output'>Output</div>
+  );
 };
 export default Output;
