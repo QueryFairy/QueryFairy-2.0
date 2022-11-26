@@ -11,7 +11,6 @@ const Output = (props) => {
   return (
   <div className='Output'>
     <CodeMirror
-    height="175px"
     value='//Hello'
     theme={dracula}
     extensions={

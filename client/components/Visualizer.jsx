@@ -14,15 +14,13 @@ const Visualizer = (props) => {
   const { data } = props;
 
 
-  const text = 'Lorem ipsum dolor sit \n \t amet, consectetur adipiscing elit, \n sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+  const text = JSON.stringify(data, null, 2);
 
   
   return (
   <div className='Visualizer'>
     <CodeMirror
     value={text}
-    height="300px"
-    width="500px"
     theme={dracula}
     //keymap={sublime}
     // mode={javascript}

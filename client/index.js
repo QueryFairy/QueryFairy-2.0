@@ -9,13 +9,16 @@
  * ************************************
  */
 
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React from 'react';
+import { createRoot } from "react-dom/client"
 import App from './App.jsx';
 import styles from './stylesheets/styles.scss';
 // import './stylesheets/styles.css';
 
 // import { Provider } from 'react-redux';
 // import styles from './stylesheets/application.scss'; // eslint-disable-line no-unused-vars
+const container = document.getElementById('root');
 
-render(<App />, document.getElementById('root'));
+const root = createRoot(container);
+
+root.render(<App />)
