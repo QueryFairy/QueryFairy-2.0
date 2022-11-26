@@ -33,6 +33,16 @@ body {
     "Output Output";
 }
 
+.Visualizer-cm.content {
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.CodeMirror {
+  word-break: break-word;
+  overflow-x: hidden;
+}
+
 .API-Call { grid-area: API-Call; }
 
 .Output { grid-area: Output; }
