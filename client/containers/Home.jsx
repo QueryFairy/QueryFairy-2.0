@@ -5,11 +5,12 @@ import Visualizer from '../components/Visualizer.jsx';
 import { useState, useEffect } from 'react';
 import React, { Component } from 'react';
 
+
 const Home = () => {
   const [endpoint, setEndpoint] = useState('');
   const [keyList, setKeyList] = useState({});
   const [output, setOutput] = useState('');
-  const [visualizer, setVisualizer] = useState({});
+  const [visualizer, setVisualizer] = useState('');
 
 
  
