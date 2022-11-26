@@ -11,9 +11,6 @@ const Home = () => {
   const [output, setOutput] = useState('');
   const [visualizer, setVisualizer] = useState({});
 
-
- 
-
   return (
     <div className='container'>
       <Endpoint setEndpoint = {setEndpoint}/>
