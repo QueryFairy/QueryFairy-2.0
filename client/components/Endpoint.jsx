@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
+
 let input = '';
+
 const Endpoint = (props) => {
   const { setEndpoint } = props;
 
