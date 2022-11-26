@@ -12,6 +12,7 @@ import {
 
 
 const App = () => {
+  console.log('App started')
   return (
     <Router>
       <div>

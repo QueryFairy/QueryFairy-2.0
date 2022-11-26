@@ -25,6 +25,8 @@ const Home = () => {
       console.log('Invalid API Request!');
     })
   }, [endpoint]);
+
+  console.log('Home rendered')
  
   const getKeys = (obj, map = {}) => {
     if(typeof obj !== 'object') {

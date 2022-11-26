@@ -6,10 +6,12 @@ const Endpoint = (props) => {
   const { setEndpoint } = props;
 
   const onChangeHandler = (e) => {
-    input = e.target.value
+    input = e.target.value;
+    console.log(input);
   }
   
   const onClickHandler = () => {
+    console.log(input);
     setEndpoint(input);
   }
 
