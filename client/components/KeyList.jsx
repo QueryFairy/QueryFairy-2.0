@@ -1,12 +1,16 @@
 import React from 'react';
 const KeyList = (props) => {
   const { keyList } = props;
-  
-  const keyButtons = keyList.length ? keyList.map(key => <button>{key}</button>) : <p></p>;
+
+  const keyElements = keyList.map((key) => {
+    return (
+      <li><a>{key}</a></li>
+    )
+  });
 
   return (
   <div className='KeyList'>
-    <div>{keyButtons}</div>
+    <ul>{ keyElements }</ul>
   </div>
   )
 };

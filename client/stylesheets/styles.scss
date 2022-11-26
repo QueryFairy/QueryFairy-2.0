@@ -5,22 +5,22 @@ html {
   height: 100%;
 }
 body {
-  min-height: 100%;
+  height: 100%;
 }
 
 #root {
   // min-height: 100%;
-  min-height: 874px;
+  height: 874px;
 }
 
 .app {
   // min-height: 100%;
-  min-height: 874px;
+  height: 874px;
 }
 
 .container {  
   // min-height: 100%;
-  min-height: 95vh;
+  height: 95vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 0.4fr 1.7fr 0.9fr;
@@ -42,3 +42,20 @@ body {
   .Visualizer { grid-area: Visualizer; }
 }
 
+.Visualizer-cm.content {
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.CodeMirror {
+  word-break: break-word;
+  overflow-x: hidden;
+}
+
+.API-Call { grid-area: API-Call; }
+
+.Output { grid-area: Output; }
+
+.KeyList { grid-area: KeyList; }
+
+.Visualizer { grid-area: Visualizer; }
