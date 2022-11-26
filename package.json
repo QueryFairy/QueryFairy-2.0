@@ -1,20 +1,56 @@
 {
-  "name": "query-fairy",
+  "name": "blog-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
+    "start": "nodemon server/server.js",
+    "dev": "webpack-dev-server --hot --progress --color",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PinkFairyArmadillo-DJRS/query-fairy.git"
-  },
-  "keywords": [],
-  "author": "",
+  "author": "samanthasalley",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/PinkFairyArmadillo-DJRS/query-fairy/issues"
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-regular-svg-icons": "^5.7.2",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "express": "^4.16.3",
+    "node-fetch": "^2.3.0",
+    "pg": "^8.8.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.5.2",
+    "react-hot-loader": "^4.6.3",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
   },
-  "homepage": "https://github.com/PinkFairyArmadillo-DJRS/query-fairy#readme"
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "concurrently": "^6.4.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "eslint": "^7.12.1",
+    "eslint-plugin-react": "^7.21.5",
+    "file-loader": "^6.2.0",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "nodemon": "^2.0.15",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0",
+    "webpack-hot-middleware": "^2.24.3"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "server/data/*",
+      "client/*"
+    ]
+  }
 }
