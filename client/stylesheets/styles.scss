@@ -1,4 +1,5 @@
-
+@import './nav.scss';
+@import './treeview.scss';
 
 html {
   height: 100%;
@@ -31,6 +32,14 @@ body {
     "API-Call API-Call"
     "KeyList Visualizer"
     "Output Output";
+
+  .API-Call { grid-area: API-Call; }
+
+  .Output { grid-area: Output; }
+
+  .KeyList { grid-area: KeyList; }
+
+  .Visualizer { grid-area: Visualizer; }
 }
 
 .Visualizer-cm.content {

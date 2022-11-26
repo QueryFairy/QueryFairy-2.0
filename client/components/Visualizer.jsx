@@ -11,7 +11,7 @@ import {EditorState} from "@codemirror/state"
 
 
 const Visualizer = (props) => {
-  const { visualizer } = props;
+  const { data } = props;
 
 
   const text = 'Lorem ipsum dolor sit \n \t amet, consectetur adipiscing elit, \n sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
