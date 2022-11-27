@@ -26,8 +26,6 @@ const Home = () => {
     })
   }, [endpoint]);
 
-  console.log('Home rendered')
- 
   const getKeys = (obj, map = {}) => {
     if(typeof obj !== 'object') {
       return;

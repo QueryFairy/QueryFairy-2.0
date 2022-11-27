@@ -7,11 +7,9 @@ const Endpoint = (props) => {
 
   const onChangeHandler = (e) => {
     input = e.target.value;
-    console.log(input);
   }
   
   const onClickHandler = () => {
-    console.log(input);
     setEndpoint(input);
   }
 
