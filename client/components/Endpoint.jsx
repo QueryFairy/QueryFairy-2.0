@@ -1,4 +1,8 @@
 import React from 'react';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import theme from '../palette/colorPalette'
+import { ThemeProvider }  from '@mui/material/styles';
 
 let input = '';
 
@@ -16,8 +20,12 @@ const Endpoint = (props) => {
 
   return (
     <div className='API-Call'>
-      <input type='text' placeholder='API endpoint' onChange = {onChangeHandler} ></input>
-      <button type='button' onClick = {onClickHandler}>Submit</button>
+      <ThemeProvider theme={theme}>
+        <div class="inputs">
+          <TextField id="standard-basic" label="API Endpoint" variant="standard" onChange = {onChangeHandler}/>
+          <Button id="button" color="secondary" variant="contained" onClick = {onClickHandler}>Submit</Button>
+        </div>
+      </ThemeProvider>
     </div>
   );
 };
