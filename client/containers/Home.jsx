@@ -4,6 +4,7 @@ import KeyList from '../components/KeyList.jsx';
 import Visualizer from '../components/Visualizer.jsx';
 import { useState, useEffect } from 'react';
 import React, { Component, useRef } from 'react';
+import FlashMessage from 'react-flash-message'
 
 
 const Home = () => {
@@ -32,6 +33,7 @@ const Home = () => {
       console.log(keyList)
     })
     .catch((err) => {
+      flashMessage();
       console.log('Invalid API Request!');
     })
   }, [endpoint]);
@@ -67,13 +69,9 @@ const Home = () => {
   function generatePath(dataObj, keyname){
       let paths = [];
       console.log('generatePath******')
-      // console.log('dataObj:', dataObj);
-      // console.log('keyName', keyname)
       function recurse(obj, str=''){
-        // console.log('obj', obj)
         if(typeof obj !== 'object') return;
         for(let key in obj){
-          //console.log('key', key)
           const updatedStr = /[^a-z]/g.test(key) 
           ? `${str}['${key}']`
           : `${str}.${key}`
@@ -92,6 +90,12 @@ const Home = () => {
     };
 
   const getInnerKey = (obj, path) => {};
+
+  const flashMessage = () => (
+    <FlashMessage duration={5000}>
+      <strong>API Endpoint does not exist</strong>
+    </FlashMessage>
+  )
 
   return (
     <div className='container'>
