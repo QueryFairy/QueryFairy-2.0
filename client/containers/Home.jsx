@@ -3,7 +3,7 @@ import Output from '../components/Output.jsx';
 import KeyList from '../components/KeyList.jsx';
 import Visualizer from '../components/Visualizer.jsx';
 import { useState, useEffect } from 'react';
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 
 
 const Home = () => {
@@ -14,7 +14,15 @@ const Home = () => {
   const [innerKey, setInnerKey] = useState('');
   const [dataObj, setDataObj] = useState({});
   // called on every click of Call API button
+
+  const isFirstMount = useRef(true);
+
   useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return
+    }
+    
     // fetch API request with endpoint
     fetch(endpoint)
     .then(res => res.json())
@@ -30,6 +38,10 @@ const Home = () => {
   }, [endpoint]);
 
   useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
     console.log('visualizer', visualizer)
     console.log(innerKey)
     console.log(endpoint)
