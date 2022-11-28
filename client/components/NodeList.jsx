@@ -7,9 +7,9 @@ const NodeList = (props) => {
   const nodeElements = nodeList.map((node) => <NodeItem key={`${node}node`} node={node} setNode={setNode} />);
 
   return (
-  <div className='NodeList'>
+  <ul className='NodeList'>
     <ul>{ nodeElements }</ul>
-  </div>
+  </ul>
   )
 };
 

@@ -15,6 +15,7 @@ const Output = (props) => {
 
   return (
   <div className='Output'>
+    <button onClick={resetPath}>Reset Path</button>
     <div className="CodeMirrorContainer">
       <CodeMirror
       onClick = {() => copyToClipboard(output)}
@@ -27,7 +28,6 @@ const Output = (props) => {
         linewrapping: true
             }}
         />
-      {/* <button onClick={resetPath}>Reset Path</button> */}
     </div>
   </div>
   );

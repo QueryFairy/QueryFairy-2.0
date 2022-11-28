@@ -93,12 +93,17 @@ const Home = () => {
 
   const getInnerKey = (obj, path) => {};
 
+  function resetPath() {
+    console.log(innerKey);
+    setInnerKey('');
+  }
+
   return (
     <div className='container'>
       <Endpoint setEndpoint={setEndpoint}/>
       <KeyList keyList={keyList} setInnerKey={setInnerKey}/>
       <Visualizer visualizer={visualizer} innerKey={innerKey}/>
-      <Output output = {output}/>
+      <Output output = {output} resetPath={resetPath}/>
     </div>
   );
 };
