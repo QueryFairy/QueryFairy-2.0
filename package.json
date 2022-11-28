@@ -1,0 +1,56 @@
+{
+  "name": "Query-Fairy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client/index.js",
+  "scripts": {
+    "start": "nodemon server/server.js",
+    "dev": "webpack-dev-server --progress --color",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Zarou - Stephen Rivas - Jason Kuyper - Dison Ruan",
+  "license": "ISC",
+  "dependencies": {
+    "@codemirror/commands": "^6.1.2",
+    "@codemirror/lang-javascript": "^6.1.1",
+    "@codemirror/state": "^6.1.4",
+    "@codemirror/view": "^6.6.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.16",
+    "@uiw/codemirror-theme-dracula": "^4.15.1",
+    "@uiw/react-codemirror": "^4.15.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "concurrently": "^6.4.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "eslint": "^7.12.1",
+    "eslint-plugin-react": "^7.21.5",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "nodemon": "^2.0.15",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0",
+    "webpack-hot-middleware": "^2.24.3"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "server/data/*",
+      "client/*"
+    ]
+  }
+}

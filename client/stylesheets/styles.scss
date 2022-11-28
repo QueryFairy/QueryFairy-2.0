@@ -1,0 +1,174 @@
+@import './nav.scss';
+@import './layerview.scss';
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+
+#root {
+  // min-height: 100%;
+  height: 874px;
+}
+
+.app {
+  // min-height: 100%;
+  height: 874px;
+}
+
+.container {  
+  // min-height: 100%;
+  height: 95vh;
+  display: grid;
+  grid-template-columns: 0.3fr 0.7fr;
+  grid-template-rows: 0.4fr 1.7fr 0.9fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "API-Call API-Call"
+    "KeyList Visualizer"
+    "Output Output";
+
+  .API-Call { 
+    grid-area: API-Call;
+    .inputs {
+      display: flex;
+      justify-content: flex-start;
+      margin: 1rem 2rem;
+    }
+    #standard-basic {
+      min-width: 15rem;
+    }
+    #button {
+      align-self: center;
+      margin: 0px 2rem;
+    }
+   }
+
+  .Output { 
+    grid-area: Output; 
+    padding-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    button {
+      align-self: flex-start;
+      font-size: 1.2rem;    
+      background-color: #f48fb1;
+      padding: 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .KeyList { 
+    grid-area: KeyList; 
+    max-height: 40rem;
+    max-width: auto;
+    overflow: scroll;
+    
+    .keyButton {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: rgb(255, 255, 255);
+      margin-bottom: 0.2rem;
+      border: none;
+      border-radius: 4px;
+      height: 2rem;
+      cursor: pointer;
+
+    }
+
+    keyButton:hover {
+
+    } 
+
+    .keyButton.style1 {
+      background-color: #ec407a;
+    }
+
+    .keyButton.style2 {
+      background-color: #f48fb1;
+    }
+
+
+    li {
+      list-style: none;
+    }
+  }
+
+  .Visualizer { grid-area: Visualizer; }
+}
+
+.Visualizer-cm.content {
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.CodeMirrorContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.CodeMirror {
+  word-break: break-word;
+  overflow-x: hidden;
+  font-size: 1.5rem;
+  width: 80rem;
+  height: 20rem;
+  border-radius: 5px;
+}
+
+.API-Call { grid-area: API-Call; }
+
+.Output {
+  grid-area: Output;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.KeyList { grid-area: KeyList; }
+
+.Visualizer { grid-area: Visualizer; }
+
+.FlashError {
+  font-size: 1.5rem;
+  position: absolute;
+  text-align: center;
+  z-index: 9999999;
+  width: 100rem;
+  height: 2rem;
+  background-color: #ec407a;
+  margin: -100px;
+
+	-webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+ @-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+}
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+}
