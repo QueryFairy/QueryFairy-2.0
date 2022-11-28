@@ -83,6 +83,8 @@ const Home = () => {
         return null;
       }
       recurse(dataObj);
+      setOutput(paths);
+      console.log('output', output)
       return paths
     };
 
