@@ -11,16 +11,12 @@ import {EditorState} from "@codemirror/state"
 
 
 const Visualizer = (props) => {
-  const { data } = props;
-
-
-  const text = 'Lorem ipsum dolor sit \n \t amet, consectetur adipiscing elit, \n sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-
+  const { visualizer, innerKey } = props;
   
   return (
   <div className='Visualizer'>
     <CodeMirror
-    value={text}
+    value={JSON.stringify(visualizer)}
     height="300px"
     width="500px"
     theme={dracula}

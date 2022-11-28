@@ -12,7 +12,7 @@ const Output = (props) => {
   <div className='Output'>
     <CodeMirror
     height="175px"
-    value='//Hello'
+    value={JSON.stringify(output)}
     theme={dracula}
     extensions={
       [javascript({ jsx: true }), EditorView.lineWrapping, EditorState.readOnly.of(true)]}

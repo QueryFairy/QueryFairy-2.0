@@ -1,10 +1,14 @@
 import React from 'react';
 const KeyList = (props) => {
-  const { keyList } = props;
+  const { keyList, setInnerKey } = props;
+
+  const onClickHandler = (e) => {
+    setInnerKey(e.target.innerText);
+  }
 
   const keyElements = keyList.map((key) => {
     return (
-      <li><a>{key}</a></li>
+      <li onClick={onClickHandler}><a>{key}</a></li>
     )
   });
 
