@@ -10,7 +10,7 @@
     display: flex;
     height: 5rem;
 
-    .KeyList {
+    .NodeList {
       width: 50%;
       height: 100%;
     }
@@ -18,7 +18,10 @@
     .Output {
       width: 50%;
       height: 100%;
-      
+    }
+
+    .CodeMirror {
+      height: 100%;
     }
   }
 }

@@ -6,13 +6,12 @@ import {EditorView, basicSetup} from "codemirror";
 import {EditorState} from "@codemirror/state";
 
 const Output = (props) => {
-  const { output } = props;
+  const { output, resetPath } = props;
 
   return (
   <div className='Output'>
     <CodeMirror
-    height="175px"
-    value={JSON.stringify(output)}
+    value={output}
     theme={dracula}
     extensions={
       [javascript({ jsx: true }), EditorView.lineWrapping, EditorState.readOnly.of(true)]}
@@ -20,6 +19,7 @@ const Output = (props) => {
       linewrapping: true
           }}
       />
+    <button onClick={resetPath}>Reset Path</button>
   </div>
   );
 };

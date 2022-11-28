@@ -8,7 +8,7 @@ const KeyList = (props) => {
 
   const keyElements = keyList.map((key) => {
     return (
-      <li onClick={onClickHandler}><a>{key}</a></li>
+      <li><button onClick={onClickHandler}>{key}</button></li>
     )
   });
 
