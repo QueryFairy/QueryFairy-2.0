@@ -10,6 +10,7 @@ const Endpoint = (props) => {
   }
   
   const onClickHandler = () => {
+    console.log('hi')
     setEndpoint(input);
   }
 

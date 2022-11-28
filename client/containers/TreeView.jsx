@@ -15,12 +15,12 @@ const TreeView = () => {
     fetch(endpoint)
     .then(res=> res.json())
     .then(newData => {
-      setData(newData)
+      setVisualizer(newData)
       setNodeList(Object.keys(newData));
-      setOutput('data');
+      setOutput('visualizer');
     }).catch(err => console.log(err));
   }, [endpoint])
-  const [data, setData] = useState({});
+  const [visualizer, setVisualizer] = useState({});
   const [node, setNode] = useState('');
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const TreeView = () => {
 
   const resetPath = () => {
     console.log(output);
-    setOutput('data');
+    setOutput('visualizer');
   }
 
   return (
@@ -55,7 +55,7 @@ const TreeView = () => {
         <NodeList nodeList={nodeList} setNode={setNode}/>
         <Output output={output} resetPath={resetPath}/>
       </div>
-      <Visualizer data={eval(output)}/>
+      <Visualizer visualizer={eval(output)}/>
     </div>
   );
 };

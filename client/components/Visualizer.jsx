@@ -11,16 +11,14 @@ import {EditorState} from "@codemirror/state"
 
 
 const Visualizer = (props) => {
-  const { data } = props;
-
-
-  const text = JSON.stringify(data, null, 2);
-
+  const { visualizer, innerKey } = props;
   
   return (
   <div className='Visualizer'>
     <CodeMirror
-    value={text}
+    value={JSON.stringify(visualizer)}
+    height="40rem"
+    width="40rem"
     theme={dracula}
     //keymap={sublime}
     // mode={javascript}

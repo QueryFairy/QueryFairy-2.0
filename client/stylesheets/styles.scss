@@ -37,7 +37,15 @@ body {
 
   .Output { grid-area: Output; }
 
-  .KeyList { grid-area: KeyList; }
+  .KeyList { 
+    grid-area: KeyList; 
+    max-height: 40rem;
+    overflow: scroll;
+
+    li {
+      list-style: none;
+    }
+  }
 
   .Visualizer { grid-area: Visualizer; }
 }
