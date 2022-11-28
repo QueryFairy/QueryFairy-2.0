@@ -2,6 +2,7 @@ import Endpoint from '../components/Endpoint.jsx';
 import Output from '../components/Output.jsx';
 import KeyList from '../components/KeyList.jsx';
 import Visualizer from '../components/Visualizer.jsx';
+import FlashError from '../components/FlashError.jsx';
 import { useState, useEffect } from 'react';
 import React, { Component, useRef } from 'react';
 
@@ -13,14 +14,20 @@ const Home = () => {
   const [visualizer, setVisualizer] = useState('');
   const [innerKey, setInnerKey] = useState('');
   const [dataObj, setDataObj] = useState({});
+  const [errorMessage, setErrorMessage] = useState('');
   // called on every click of Call API button
 
   const isFirstMount = useRef(true);
+  const isErrored = useRef(false);
 
   useEffect(() => {
     if (isFirstMount.current) {
       isFirstMount.current = false;
       return
+    }
+    const newLink = endpoint.slice(0, 8)
+    if (newLink !== 'https://') {
+       setEndpoint('https://' + endpoint);
     }
     // fetch API request with endpoint
     fetch(endpoint)
@@ -32,7 +39,8 @@ const Home = () => {
       console.log(keyList)
     })
     .catch((err) => {
-      console.log('Invalid API Request!');
+      isErrored.current = true;
+      setErrorMessage('Invalid API request. Please check the url and try again.');
     })
   }, [endpoint]);
 
@@ -67,13 +75,9 @@ const Home = () => {
   function generatePath(dataObj, keyname){
       let paths = [];
       console.log('generatePath******')
-      // console.log('dataObj:', dataObj);
-      // console.log('keyName', keyname)
       function recurse(obj, str=''){
-        // console.log('obj', obj)
         if(typeof obj !== 'object') return;
         for(let key in obj){
-          //console.log('key', key)
           const updatedStr = /[^a-z]/g.test(key) 
           ? `${str}['${key}']`
           : `${str}.${key}`
@@ -92,9 +96,10 @@ const Home = () => {
     };
 
   const getInnerKey = (obj, path) => {};
-
+  
   return (
     <div className='container'>
+      { isErrored.current ? <FlashError errorMessage={errorMessage}/> : null}
       <Endpoint setEndpoint={setEndpoint}/>
       <KeyList keyList={keyList} setInnerKey={setInnerKey}/>
       <Visualizer visualizer={visualizer} innerKey={innerKey}/>
