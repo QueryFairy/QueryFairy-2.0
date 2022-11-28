@@ -9,4 +9,4 @@ const FlashError = (props) => {
   </div>
   );
 };
-export default FlashError;
+export default LandingPage;

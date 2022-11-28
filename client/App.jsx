@@ -16,7 +16,11 @@ const App = () => {
     <Router>
       <div>
         <nav>
-          <p>Query Fairy</p>
+          <div className ="logo">
+            <img className = "logo-image" src="https://i.ibb.co/R2FtV5F/Query-Fairy-Logo.png"></img>
+            <p className = "title">Query Fairy</p>
+          </div>
+          <div className='links'>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -25,6 +29,7 @@ const App = () => {
               <Link to="/treeview">TreeView</Link>
             </li>
           </ul>
+          </div>
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and

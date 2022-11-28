@@ -17,7 +17,7 @@ const Visualizer = (props) => {
   <div className='Visualizer'>
     <CodeMirror
     value={JSON.stringify(visualizer)}
-    height="40em"
+    height="35rem"
     width= "auto"
     theme={dracula}
     //keymap={sublime}
