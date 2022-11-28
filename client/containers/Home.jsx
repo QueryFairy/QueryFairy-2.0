@@ -2,9 +2,9 @@ import Endpoint from '../components/Endpoint.jsx';
 import Output from '../components/Output.jsx';
 import KeyList from '../components/KeyList.jsx';
 import Visualizer from '../components/Visualizer.jsx';
+import FlashError from '../components/FlashError.jsx';
 import { useState, useEffect } from 'react';
 import React, { Component, useRef } from 'react';
-import FlashMessage from 'react-flash-message'
 
 
 const Home = () => {
@@ -14,14 +14,20 @@ const Home = () => {
   const [visualizer, setVisualizer] = useState('');
   const [innerKey, setInnerKey] = useState('');
   const [dataObj, setDataObj] = useState({});
+  const [errorMessage, setErrorMessage] = useState('');
   // called on every click of Call API button
 
   const isFirstMount = useRef(true);
+  const isErrored = useRef(false);
 
   useEffect(() => {
     if (isFirstMount.current) {
       isFirstMount.current = false;
       return
+    }
+    const newLink = endpoint.slice(0, 8)
+    if (newLink !== 'https://') {
+       setEndpoint('https://' + endpoint);
     }
     // fetch API request with endpoint
     fetch(endpoint)
@@ -33,8 +39,8 @@ const Home = () => {
       console.log(keyList)
     })
     .catch((err) => {
-      flashMessage();
-      console.log('Invalid API Request!');
+      isErrored.current = true;
+      setErrorMessage('Invalid API request. Please check the url and try again.');
     })
   }, [endpoint]);
 
@@ -90,15 +96,10 @@ const Home = () => {
     };
 
   const getInnerKey = (obj, path) => {};
-
-  const flashMessage = () => (
-    <FlashMessage duration={5000}>
-      <strong>API Endpoint does not exist</strong>
-    </FlashMessage>
-  )
-
+  
   return (
     <div className='container'>
+      { isErrored.current ? <FlashError errorMessage={errorMessage}/> : null}
       <Endpoint setEndpoint={setEndpoint}/>
       <KeyList keyList={keyList} setInnerKey={setInnerKey}/>
       <Visualizer visualizer={visualizer} innerKey={innerKey}/>
