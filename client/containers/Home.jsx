@@ -22,7 +22,6 @@ const Home = () => {
       isFirstMount.current = false;
       return
     }
-    
     // fetch API request with endpoint
     fetch(endpoint)
     .then(res => res.json())
@@ -67,10 +66,14 @@ const Home = () => {
 
   function generatePath(dataObj, keyname){
       let paths = [];
-      console.log('generate')
+      console.log('generatePath******')
+      // console.log('dataObj:', dataObj);
+      // console.log('keyName', keyname)
       function recurse(obj, str=''){
+        // console.log('obj', obj)
         if(typeof obj !== 'object') return;
         for(let key in obj){
+          //console.log('key', key)
           const updatedStr = /[^a-z]/g.test(key) 
           ? `${str}['${key}']`
           : `${str}.${key}`
@@ -84,7 +87,7 @@ const Home = () => {
       }
       recurse(dataObj);
       setOutput(JSON.stringify(paths));
-      console.log('output', output)
+      //console.log('output', output, paths)
       return paths
     };
 
