@@ -11,14 +11,19 @@ const copyToClipboard = (output) => {
 }
 
 const Output = (props) => {
-  const { output, resetPath } = props;
-
+  const { output, resetPath, setErrorMessage } = props;
+  
   return (
   <div className='Output'>
     <button onClick={resetPath}>Reset Path</button>
     <div className="CodeMirrorContainer">
       <CodeMirror
-      onClick = {() => copyToClipboard(output)}
+      onClick = {() => {
+        copyToClipboard(output);
+        setErrorMessage('Code copied to clipboard!');
+        setTimeout(() => setErrorMessage(''), 3000);
+      }
+    }
       className="CodeMirror"
       value={output}
       theme={dracula}

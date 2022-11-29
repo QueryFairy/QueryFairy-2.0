@@ -15,10 +15,8 @@ const Home = () => {
   const [innerKey, setInnerKey] = useState('');
   const [dataObj, setDataObj] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
-  // called on every click of Call API button
 
   const isFirstMount = useRef(true);
-  const isErrored = useRef(false);
 
   useEffect(() => {
     if (isFirstMount.current) {
@@ -36,11 +34,10 @@ const Home = () => {
       setDataObj(newData);
       setVisualizer(newData);
       setKeyList(getKeys(newData).sort());
-      console.log(keyList)
     })
     .catch((err) => {
-      isErrored.current = true;
       setErrorMessage('Invalid API request. Please check the url and try again.');
+      setTimeout(() => setErrorMessage(''), 3000);
     })
   }, [endpoint]);
 
@@ -49,13 +46,8 @@ const Home = () => {
       isFirstMount.current = false;
       return;
     }
-    console.log('visualizer', visualizer)
-    console.log(innerKey)
-    console.log(endpoint)
-    console.log(dataObj)
     const path = generatePath(dataObj, innerKey).toString(); // fix this to get path and
     const newPath = 'dataObj' + path;
-    console.log(newPath)
     setVisualizer(eval(newPath));
   }, [innerKey]);
  
@@ -74,7 +66,6 @@ const Home = () => {
 
   function generatePath(dataObj, keyname){
       let paths = [];
-      console.log('generatePath******')
       function recurse(obj, str=''){
         if(typeof obj !== 'object') return;
         for(let key in obj){
@@ -90,8 +81,8 @@ const Home = () => {
         return null;
       }
       recurse(dataObj);
-      setOutput(JSON.stringify(paths));
-      //console.log('output', output, paths)
+      if (paths[0] === undefined) paths[0] = '';
+      setOutput('data' + paths[0]);
       return paths
     };
 
@@ -104,11 +95,11 @@ const Home = () => {
 
   return (
     <div className='container'>
-      { isErrored.current ? <FlashError errorMessage={errorMessage}/> : null}
+      {errorMessage !== '' ? <FlashError errorMessage={errorMessage}/> : null}
       <Endpoint setEndpoint={setEndpoint}/>
       <KeyList keyList={keyList} setInnerKey={setInnerKey}/>
       <Visualizer visualizer={visualizer} innerKey={innerKey}/>
-      <Output output = {output} resetPath={resetPath}/>
+      <Output output = {output} setErrorMessage={setErrorMessage} resetPath={resetPath}/>
     </div>
   );
 };
