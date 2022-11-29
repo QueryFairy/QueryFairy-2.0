@@ -81,19 +81,25 @@ const Home = () => {
         return null;
       }
       recurse(dataObj);
+      if (paths[0] === undefined) paths[0] = '';
       setOutput('data' + paths[0]);
       return paths
     };
 
   const getInnerKey = (obj, path) => {};
-  
+
+  function resetPath() {
+    console.log(innerKey);
+    setInnerKey('');
+  }
+
   return (
     <div className='container'>
       {errorMessage !== '' ? <FlashError errorMessage={errorMessage}/> : null}
       <Endpoint setEndpoint={setEndpoint}/>
       <KeyList keyList={keyList} setInnerKey={setInnerKey}/>
       <Visualizer visualizer={visualizer} innerKey={innerKey}/>
-      <Output output = {output} setErrorMessage={setErrorMessage}/>
+      <Output output = {output} setErrorMessage={setErrorMessage} resetPath={resetPath}/>
     </div>
   );
 };

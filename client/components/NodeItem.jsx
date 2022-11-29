@@ -7,7 +7,7 @@ const NodeItem = (props) => {
     setNode(node);
   }
 
-  return(<button onClick={handleClick}>{node}</button>)
+  return(<li><button onClick={handleClick}>{node}</button></li>)
 }
 
 export default NodeItem;

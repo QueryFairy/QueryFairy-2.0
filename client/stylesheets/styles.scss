@@ -1,5 +1,5 @@
 @import './nav.scss';
-@import './treeview.scss';
+@import './layerview.scss';
 
 html {
   height: 100%;
@@ -79,6 +79,19 @@ body {
   .Output { 
     grid-area: Output; 
     padding-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: -8rem;
+
+    button {
+      align-self: center;
+      font-size: 1.2rem;    
+      background-color: #f48fb1;
+      padding: 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   }
 
   .KeyList { 

@@ -1,0 +1,54 @@
+.NodeList { 
+  grid-area: KeyList; 
+  max-height: 40rem;
+  max-width: auto;
+  overflow: scroll;
+
+  li {
+    button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: rgb(255, 255, 255);
+      margin-bottom: 0.2rem;
+      border: none;
+      border-radius: 4px;
+      height: 2rem;
+      cursor: pointer;
+      background-color: #ec407a;
+    }
+
+    :nth-child(even){
+      button {
+        background-color: #f48fb1;
+      }
+    }
+  }
+  // .keyButton {
+  //   font-family: Arial, Helvetica, sans-serif;
+  //   font-size: 16px;
+  //   color: rgb(255, 255, 255);
+  //   margin-bottom: 0.2rem;
+  //   border: none;
+  //   border-radius: 4px;
+  //   height: 2rem;
+  //   cursor: pointer;
+
+  // }
+
+  // keyButton:hover {
+
+  // } 
+
+  // .keyButton.style1 {
+  //   background-color: #ec407a;
+  // }
+
+  // .keyButton.style2 {
+  //   background-color: #f48fb1;
+  // }
+
+
+  li {
+    list-style: none;
+  }
+}

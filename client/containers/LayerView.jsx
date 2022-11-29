@@ -5,7 +5,7 @@ import Visualizer from '../components/Visualizer.jsx';
 import { useState, useEffect } from 'react';
 import React from 'react';
 
-const TreeView = () => {
+const LayerView = () => {
   useEffect(()=>{}, []);
 
   const [endpoint, setEndpoint] = useState('');
@@ -49,15 +49,13 @@ const TreeView = () => {
   }
 
   return (
-    <div className='treeView'>
+    <div className="container">
       <Endpoint setEndpoint={setEndpoint}/>
-      <div className='keysAndOutput'>
-        <NodeList nodeList={nodeList} setNode={setNode}/>
-        <Output output={output} resetPath={resetPath}/>
-      </div>
+      <NodeList nodeList={nodeList} setNode={setNode}/>
       <Visualizer visualizer={eval(output)}/>
+      <Output output={`data${output.slice(10)}`} resetPath={resetPath}/>
     </div>
   );
 };
 
-export default TreeView;
+export default LayerView;
