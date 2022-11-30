@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server/server.js",
     "dev": "webpack-dev-server --progress --color",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose"
   },
   "author": "Ryan Zarou - Stephen Rivas - Jason Kuyper - Dison Ruan",
   "license": "ISC",
@@ -23,7 +23,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "regenerator-runtime": "^0.13.11"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -35,18 +36,23 @@
     "css-loader": "^6.5.1",
     "eslint": "^7.12.1",
     "eslint-plugin-react": "^7.21.5",
+    "express": "^4.18.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
     "nodemon": "^2.0.15",
+    "react-test-renderer": "^18.2.0",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
+    "supertest": "^6.3.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.5.0",
     "webpack-hot-middleware": "^2.24.3"
-  },          
+  },
   "nodemonConfig": {
     "ignore": [
       "server/data/*",
