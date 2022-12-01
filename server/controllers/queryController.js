@@ -35,12 +35,12 @@ queryController.getQueryList = async (req, res, next) => {
     })
     //console.log(result);
     res.locals.queryList = result;
+    return next();
   } catch (error) {
     return next({
       log: 'error caught in queryController.getQueryList middleware function',
       message: { err: `${error}, caught when fetching query list`}
     })
   }
-  return next()
 }
 module.exports = queryController;

@@ -15,9 +15,11 @@ app.get('/', (req, res) => {
 });
 
 //
-app.post('/signup', userController.createUser, (req, res) => {
+console.log('outside server.js at /signup')
+app.get('/signup', (req, res) => {
+  console.log('inside server.js at /signup')
   //   return res.status(20).send(`${res.locals.user.rows[0]['username']} has been added to the database`);
-  return res.sendStatus(201);
+  return res.status(201).send('hi');
 });
 
 app.post('/login', (req, res) => {});
@@ -44,7 +46,7 @@ app.use((err, req, res) => {
   return res.status(errObj.status).json({ error: errObj.message });
 });
 
-app.listen(PORT, () => {
+
+module.exports = app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
 });
-module.exports = app;
