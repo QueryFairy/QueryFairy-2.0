@@ -51,7 +51,6 @@ const LayerView = () => {
     if (output.length) {
       // output is 'visualizer'
       const psuedoData = eval(output);
-      // 
       setNodeList(Object.keys(psuedoData));
     }
   }, [output]);

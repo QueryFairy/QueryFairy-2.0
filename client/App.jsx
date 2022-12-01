@@ -30,16 +30,6 @@ const App = () => {
             <p className='title'>Query Fairy</p>
           </div>
           <div className='links'>
-<<<<<<< HEAD
-            <ul>
-              <li>
-                <Link to='/'>Home</Link>
-              </li>
-              <li>
-                <Link to='/layerview'>LayerView</Link>
-              </li>
-            </ul>
-=======
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -54,20 +44,12 @@ const App = () => {
               <Link to='/register'>Sign Up</Link>
             </li>
           </ul>
->>>>>>> newFrontEndBranch
           </div>
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-<<<<<<< HEAD
-          <Route exact path='/layerview'>
-            <LayerView />
-          </Route>
-          <Route exact path='/'>
-            <Home />
-=======
           <Route exact path="/layerview">
             <LayerView username={username}/>
           </Route>
@@ -79,7 +61,6 @@ const App = () => {
           </Route>
           <Route exact path="/register">
           {isLoggedIn ? <Redirect to='/'/> : <Register isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} password={password} setPassword={setPassword} username={username} setUsername={setUsername} firstName={firstName} setFirstName={setFirstName} lastName={lastName} setLastName={setLastName} email={email} setEmail={setEmail}/>}
->>>>>>> newFrontEndBranch
           </Route>
         </Switch>
       </div>
