@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const userController = require('./controllers/userController.js');
+const queryController = require('./controllers/userController.js');
+const queryRouter = require('./routes/queryRouter.js');
 
 const PORT = 3000;
 
@@ -15,12 +17,13 @@ app.get('/', (req, res) => {
 //
 app.post('/signup', userController.createUser, (req, res) => {
   //   return res.status(20).send(`${res.locals.user.rows[0]['username']} has been added to the database`);
-  console.log('RES', res.locals.user.rows[0]);
-  return res.status(201).json(res.locals.user.rows[0]);
+  return res.sendStatus(201);
 });
 
 app.post('/login', (req, res) => {});
 // userController.verifyUser
+
+app.use('/queries', queryRouter);
 
 // create a unknown routes handler
 
