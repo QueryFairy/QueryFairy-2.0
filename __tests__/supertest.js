@@ -12,16 +12,11 @@
 // const { response } = require("express");
 // const { async } = require("regenerator-runtime");
 const request = require('supertest');
+const server = require('../server/server');
 
-const server = 'http://localhost:3000';
+// const server = 'http://localhost:3000';
 
-const testObj = JSON.stringify({
-  first_name: 'abc',
-  last_name: 'def',
-  email: 'abc@gmail.com',
-  password: '123',
-  username: 'abciscool',
-});
+
 
 describe('Route integration', () => {
   describe('/signup', () => {
@@ -29,21 +24,12 @@ describe('Route integration', () => {
       // Note that we return the evaluation of `request` here! It evaluates to
       // a promise, so Jest knows not to say this test passes until that
       // promise resolves. See https://jestjs.io/docs/en/asynchronous
-
-      it('responds with 201 status and application/json content type', () => {
+      it('responds with 201 status', () => {
         return (
           request(server)
             .post('/signup')
-            .send(testObj)
-            // .then((res) => {
-            //   // console.log('RES', res);
-            // })
-            .expect('Content-Type', /application\/json; charset=utf-8/)
             .expect(201)
         );
-        // .then(response => {
-        //   expect(typeof response.json(),'object')
-        // });
       });
     });
   });
@@ -54,12 +40,34 @@ describe('Route integration', () => {
       // a promise, so Jest knows not to say this test passes until that
       // promise resolves. See https://jestjs.io/docs/en/asynchronous
 
-      it('responds with 200 status and application/json content type', () => {
+      it('responds with 200 status', () => {
         return request(server)
-          .post('/sign')
-          .expect('Content-Type', /application\/json/)
+          .post('/login')
           .expect(200);
       });
     });
   });
+
+  describe('/queries/', () => {
+    describe('POST', () => {
+      it('responds with 200 status', () => {
+        return request(server)
+        .post('/queries/')
+        .expect(200);
+      })
+    })
+  })
+
+  // describe('/queries/', () => {
+  //   describe('GET', () => {
+  //     it('responds with 200 status', () => {
+  //       return request(server)
+  //       .post('/queries')
+  //       .expect(200);
+  //     })
+  //   })
+  // })
+
 });
+
+
