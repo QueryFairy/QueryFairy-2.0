@@ -2,9 +2,10 @@ const { verify } = require('crypto');
 const express = require('express');
 const { rmSync } = require('fs');
 const path = require('path');
-const cookieController = require('./controllers/sessionController.js');
+
 const app = express();
 const userController = require('./controllers/userController.js');
+// const cookieController = require('./controllers/cookieController.js');
 
 const PORT = 3000;
 

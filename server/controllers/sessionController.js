@@ -51,7 +51,7 @@
 //   //           return next();})
 //   //         .catch(err => next({ message: 'The error handler in startSession!', log: err}));
 //   //     }
-    
+
 //   //   });
 // }
 // //return next({message: 'this is end of startSession'});

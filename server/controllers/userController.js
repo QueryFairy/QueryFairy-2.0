@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('../db.js');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const userController = {};
@@ -36,11 +36,15 @@ userController.createUser = async (req, res, next) => {
 };
 
 userController.verifyUser = async (req, res, next) => {
+  // extract out password and username from body of request
   const { password, username } = req.body;
+  // create a query string that will find the user document that matches the username on request's body
   const queryString = `SELECT password, username FROM users WHERE username=$1`;
   try {
+    // query the database to find user document with username 
     const data = await db.query(queryString, [username]);
     console.log('DATA', data);
+    // select 
     const user = data.rows;
     if (user.length === 0) {
       return next({

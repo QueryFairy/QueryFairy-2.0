@@ -1,5 +1,7 @@
+// const express = require('express');
+// const db = require('../db.js');
+
 // const cookieController = {};
-// const User = require('../db.js');
 // /**
 //  * setCookie - set a cookie with a random number
 //  */
