@@ -4,7 +4,7 @@ const router = express.Router();
 const queryController = require('../controllers/queryController.js');
 
 router.post('/', queryController.saveQuery, (req,res) => {
-  res.sendStatus(200);
+  return res.sendStatus(200);
 });
 
 router.get('/:id', queryController.getQueryList, (req, res) => {

@@ -16,10 +16,10 @@ app.get('/', (req, res) => {
 
 //
 console.log('outside server.js at /signup')
-app.get('/signup', (req, res) => {
+app.post('/signup', (req, res) => {
   console.log('inside server.js at /signup')
   //   return res.status(20).send(`${res.locals.user.rows[0]['username']} has been added to the database`);
-  return res.status(201).send('hi');
+  return res.sendStatus(201);
 });
 
 app.post('/login', (req, res) => {});
