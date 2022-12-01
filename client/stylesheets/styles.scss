@@ -1,9 +1,12 @@
 @import './nav.scss';
 @import './layerview.scss';
+@import './login.scss';
+@import './register.scss';
 
 html {
   height: 100%;
 }
+
 body {
   height: 100%;
 }
@@ -112,9 +115,9 @@ body {
 
     }
 
-    keyButton:hover {
+    // keyButton:hover {
 
-    } 
+    // } 
 
     .keyButton.style1 {
       background-color: #ec407a;

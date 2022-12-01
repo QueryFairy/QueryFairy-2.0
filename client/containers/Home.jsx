@@ -7,7 +7,8 @@ import { useState, useEffect } from 'react';
 import React, { Component, useRef } from 'react';
 
 //
-const Home = () => {
+const Home = (props) => {
+  const {username} = props
   // setting states
   const [endpoint, setEndpoint] = useState('');
   const [keyList, setKeyList] = useState([]);
@@ -109,7 +110,7 @@ const Home = () => {
   return (
     <div className='container'>
       {errorMessage !== '' ? <FlashError errorMessage={errorMessage} /> : null}
-      <Endpoint setEndpoint={setEndpoint} />
+      <Endpoint setEndpoint={setEndpoint} username={username}/>
       <KeyList keyList={keyList} setInnerKey={setInnerKey} />
       <Visualizer visualizer={visualizer} innerKey={innerKey} />
       <Output

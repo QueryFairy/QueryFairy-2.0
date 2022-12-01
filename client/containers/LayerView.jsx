@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 
 const LayerView = () => {
-  // ???
   useEffect(() => {}, []);
 
   // intialize states
