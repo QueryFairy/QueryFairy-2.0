@@ -1,6 +1,8 @@
 const { verify } = require('crypto');
 const express = require('express');
+const { rmSync } = require('fs');
 const path = require('path');
+const cookieController = require('./controllers/sessionController.js');
 const app = express();
 const userController = require('./controllers/userController.js');
 
@@ -16,12 +18,17 @@ app.get('/', (req, res) => {
 // handle any post request for endpoint signup
 app.post('/signup', userController.createUser, (req, res) => {
   //   return res.status(20).send(`${res.locals.user.rows[0]['username']} has been added to the database`);
-  console.log('RES', res.locals.user.rows[0]);
-  return res.status(201).json(res.locals.user.rows[0]);
+  //   console.log('RES', res.locals.user.rows[0]);
+  return res.status(201);
 });
 
 app.post('/login', userController.verifyUser, (req, res) => {
-  return res.status(201);
+  // try sending status along with message
+  if (res.locals.signedIn === false) {
+    return res.status(400).send('user password incorrect');
+  } else {
+    return res.status(200).send('you are logged in!');
+  }
 });
 // userController.verifyUser
 
@@ -32,7 +39,8 @@ app.use('*', (req, res) => {
 });
 
 // global error handler
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
+  console.log('Global handler hit');
   const defaultErr = {
     log: 'express error caught in unknown middleware error',
     status: 400,
@@ -48,3 +56,6 @@ app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
 });
 module.exports = app;
+
+// cookieController.setSSIDCookie,
+// sessionController.startSession,
