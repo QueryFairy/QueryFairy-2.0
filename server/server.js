@@ -8,18 +8,21 @@ const PORT = 3000;
 
 app.use(express.json());
 
+// handle any get requests at / endpoint and send status of 200 and serve index.html to front end
 app.get('/', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../index.html'));
+  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
 
-//
+// handle any post request for endpoint signup
 app.post('/signup', userController.createUser, (req, res) => {
   //   return res.status(20).send(`${res.locals.user.rows[0]['username']} has been added to the database`);
   console.log('RES', res.locals.user.rows[0]);
   return res.status(201).json(res.locals.user.rows[0]);
 });
 
-app.post('/login', (req, res) => {});
+app.post('/login', userController.verifyUser, (req, res) => {
+  return res.status(201);
+});
 // userController.verifyUser
 
 // create a unknown routes handler
