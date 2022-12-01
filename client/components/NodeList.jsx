@@ -8,7 +8,7 @@ const NodeList = (props) => {
 
   return (
   <ul className='NodeList'>
-    <ul>{ nodeElements }</ul>
+    <ul>{nodeElements}</ul>
   </ul>
   )
 };
